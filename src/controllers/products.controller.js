@@ -58,7 +58,8 @@ const getAll = async (req, res) => {
         }
 
         const collection = await getCollection("products");
-        const countDocuments = collection.countDocuments();
+        const countDocuments = await collection.countDocuments();
+
         if (countDocuments > 0) {
             products = await collection.find(filters).sort({ name: 1 }).hint("idx_id").hint("idx_name").toArray();
         }
