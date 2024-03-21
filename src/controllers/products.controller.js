@@ -51,7 +51,7 @@ const getAll = async (req, res) => {
     try {
         const { search } = req.query;
         const filters = {};
-        const products = [];
+        let products = [];
 
         if (search) {
             filters["$or"] = [{ id: Number(search) }, { name: { $regex: normalizeValue(search), $options: "i" } }];
