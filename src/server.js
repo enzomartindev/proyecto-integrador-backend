@@ -1,5 +1,6 @@
 const express = require("express");
 const multer = require("multer");
+const cors = require("cors");
 
 const productsRouter = require("./routes/products.router.js");
 const database = require("./connectionDB.js");
@@ -18,6 +19,7 @@ const HOST = process.env.HOST || "localhost";
 // Middlewares
 server.use(express.json());
 server.use("/api/products", productsRouter);
+server.use(cors());
 
 // Configuración de carpeta estatica
 server.use("/public", express.static(DIR_PUBLIC_PATH));
