@@ -16,10 +16,14 @@ const server = express();
 const PORT = process.env.PORT || 3030;
 const HOST = process.env.HOST || "localhost";
 
+const corsOptions = {
+    origin: "http://localhost:5173", // Permitir solicitudes solo desde este origen
+};
+
 // Middlewares
 server.use(express.json());
 server.use("/api/products", productsRouter);
-server.use(cors());
+server.use(cors(corsOptions));
 
 // Configuración de carpeta estatica
 server.use("/public", express.static(DIR_PUBLIC_PATH));
