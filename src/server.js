@@ -19,7 +19,10 @@ const HOST = process.env.HOST || "localhost";
 // Middlewares
 server.use(express.json());
 server.use("/api/products", productsRouter);
-server.use(cors());
+server.use(cors({
+    origin: "https://mitienda-enzo.netlify.app",
+    methods: "GET,PUT,PATCH,POST,DELETE",
+}));
 
 // Configuración de carpeta estatica
 server.use("/public", express.static(DIR_PUBLIC_PATH));
