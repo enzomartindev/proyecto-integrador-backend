@@ -18,7 +18,7 @@ const HOST = process.env.HOST || "localhost";
 
 // Middlewares
 server.use(cors({
-    origin: "https://mitienda-enzo.netlify.app/",
+    origin: "https://mitienda-enzo.netlify.app",
     methods: "GET,PUT,PATCH,POST,DELETE",
 }));
 server.use(express.json());
