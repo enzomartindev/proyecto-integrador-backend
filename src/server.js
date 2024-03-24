@@ -20,7 +20,7 @@ const HOST = process.env.HOST || "localhost";
 server.use(express.json());
 server.use("/api/products", productsRouter);
 server.use(cors({
-    origin: "https://mitienda-enzo.netlify.app",
+    origin: "https://mitienda-enzo.netlify.app/",
     methods: "GET,PUT,PATCH,POST,DELETE",
 }));
 
