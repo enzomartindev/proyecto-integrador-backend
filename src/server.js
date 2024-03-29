@@ -18,11 +18,11 @@ const PORT = process.env.PORT || 3030;
 const HOST = process.env.HOST || "localhost";
 
 // Middlewares
-// server.use(cors({
-//     origin: "https://mitienda-enzo.netlify.app",
-//     methods: "GET,PUT,PATCH,POST,DELETE",
-// }));
-server.use(cors());
+server.use(cors({
+    origin: "https://mitienda-enzo.netlify.app",
+    methods: "GET,PUT,PATCH,POST,DELETE",
+}));
+// server.use(cors());
 server.use(express.json());
 server.use("/api/products", productsRouter);
 server.use("/api/send-mail", mailerRouter);
