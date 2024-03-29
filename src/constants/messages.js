@@ -3,6 +3,7 @@ const ERROR_DATA_MISSING = "Faltan datos";
 const ERROR_SERVER = "Se ha generado un error en el servidor";
 const ERROR_UPLOAD_IMAGE = "Solo se permiten archivos PNG o JPG";
 const ERROR_UPLOAD_NULL = "Solicitud sin archivo";
+const MESSAGE_500 = "Hubo un error al enviar el mail";
 
 module.exports = {
     ERROR_ID_NOT_FOUND,
@@ -10,4 +11,5 @@ module.exports = {
     ERROR_SERVER,
     ERROR_UPLOAD_IMAGE,
     ERROR_UPLOAD_NULL,
+    MESSAGE_500,
 };
