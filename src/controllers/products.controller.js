@@ -167,4 +167,28 @@ const uploadImage = async (req, res) => {
     }
 };
 
-module.exports = { getAll, getOne, create, update, remove, uploadImage };
+const updateStock = async (req, res) => {
+    res.set(HEADER_CONTENT_TYPE);
+
+    try {
+
+        const { newStock } = req.body;
+        const { id } = req.params;
+
+        const collection = await getCollection("products");
+        const product = await collection.findOne({ id: Number(id) });
+
+        if (!product) return res.status(404).send({ success: false, message: ERROR_ID_NOT_FOUND });
+
+        await collection.updateOne({ id: Number(id) }, { $set: { stock: newStock } });
+
+        res.status(200).send({ success: true, data: product });
+
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ success: false, message: ERROR_SERVER });
+    }
+
+};
+
+module.exports = { getAll, getOne, create, update, remove, uploadImage, updateStock };
