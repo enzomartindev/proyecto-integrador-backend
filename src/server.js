@@ -23,6 +23,7 @@ const HOST = process.env.HOST || "localhost";
 //     methods: "GET,PUT,PATCH,POST,DELETE",
 // }));
 server.use(cors());
+
 server.use(express.json());
 server.use("/api/products", productsRouter);
 server.use("/api/send-mail", mailerRouter);
